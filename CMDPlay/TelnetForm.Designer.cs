@@ -42,12 +42,16 @@ namespace CMDPlay
             this.outputTxtBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.telnetAllBtn = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // IpTxtBox
             // 
-            this.IpTxtBox.Location = new System.Drawing.Point(12, 35);
+            this.IpTxtBox.Location = new System.Drawing.Point(6, 42);
             this.IpTxtBox.Name = "IpTxtBox";
             this.IpTxtBox.Size = new System.Drawing.Size(149, 23);
             this.IpTxtBox.TabIndex = 0;
@@ -55,7 +59,7 @@ namespace CMDPlay
             // 
             // PortTxtBox
             // 
-            this.PortTxtBox.Location = new System.Drawing.Point(179, 36);
+            this.PortTxtBox.Location = new System.Drawing.Point(173, 43);
             this.PortTxtBox.Name = "PortTxtBox";
             this.PortTxtBox.Size = new System.Drawing.Size(90, 23);
             this.PortTxtBox.TabIndex = 0;
@@ -63,7 +67,7 @@ namespace CMDPlay
             // 
             // TelnetBtn
             // 
-            this.TelnetBtn.Location = new System.Drawing.Point(306, 36);
+            this.TelnetBtn.Location = new System.Drawing.Point(300, 43);
             this.TelnetBtn.Name = "TelnetBtn";
             this.TelnetBtn.Size = new System.Drawing.Size(75, 23);
             this.TelnetBtn.TabIndex = 1;
@@ -74,7 +78,7 @@ namespace CMDPlay
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Location = new System.Drawing.Point(7, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 15);
             this.label1.TabIndex = 2;
@@ -83,7 +87,7 @@ namespace CMDPlay
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(232, 17);
+            this.label2.Location = new System.Drawing.Point(226, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 15);
             this.label2.TabIndex = 2;
@@ -92,34 +96,35 @@ namespace CMDPlay
             // verifyLbl
             // 
             this.verifyLbl.AutoSize = true;
-            this.verifyLbl.Location = new System.Drawing.Point(275, 39);
+            this.verifyLbl.Location = new System.Drawing.Point(278, 43);
             this.verifyLbl.Name = "verifyLbl";
             this.verifyLbl.Size = new System.Drawing.Size(0, 15);
             this.verifyLbl.TabIndex = 2;
             // 
             // IpPortTxtbox
             // 
-            this.IpPortTxtbox.Location = new System.Drawing.Point(13, 99);
+            this.IpPortTxtbox.Location = new System.Drawing.Point(8, 36);
             this.IpPortTxtbox.Multiline = true;
             this.IpPortTxtbox.Name = "IpPortTxtbox";
-            this.IpPortTxtbox.Size = new System.Drawing.Size(256, 255);
+            this.IpPortTxtbox.Size = new System.Drawing.Size(256, 233);
             this.IpPortTxtbox.TabIndex = 3;
             // 
             // dataGridView
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(421, 34);
+            this.dataGridView.Location = new System.Drawing.Point(464, 17);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowTemplate.Height = 25;
-            this.dataGridView.Size = new System.Drawing.Size(367, 404);
+            this.dataGridView.Size = new System.Drawing.Size(324, 421);
             this.dataGridView.TabIndex = 4;
             // 
             // writeOutputBtn
             // 
-            this.writeOutputBtn.Location = new System.Drawing.Point(294, 399);
+            this.writeOutputBtn.Location = new System.Drawing.Point(301, 300);
             this.writeOutputBtn.Name = "writeOutputBtn";
             this.writeOutputBtn.Size = new System.Drawing.Size(75, 23);
             this.writeOutputBtn.TabIndex = 1;
@@ -138,7 +143,7 @@ namespace CMDPlay
             // 
             // outputTxtBox
             // 
-            this.outputTxtBox.Location = new System.Drawing.Point(12, 399);
+            this.outputTxtBox.Location = new System.Drawing.Point(7, 300);
             this.outputTxtBox.Name = "outputTxtBox";
             this.outputTxtBox.Size = new System.Drawing.Size(257, 23);
             this.outputTxtBox.TabIndex = 5;
@@ -146,7 +151,7 @@ namespace CMDPlay
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 381);
+            this.label3.Location = new System.Drawing.Point(8, 282);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 15);
             this.label3.TabIndex = 2;
@@ -154,7 +159,7 @@ namespace CMDPlay
             // 
             // telnetAllBtn
             // 
-            this.telnetAllBtn.Location = new System.Drawing.Point(306, 207);
+            this.telnetAllBtn.Location = new System.Drawing.Point(301, 148);
             this.telnetAllBtn.Name = "telnetAllBtn";
             this.telnetAllBtn.Size = new System.Drawing.Size(75, 23);
             this.telnetAllBtn.TabIndex = 1;
@@ -162,28 +167,51 @@ namespace CMDPlay
             this.telnetAllBtn.UseVisualStyleBackColor = true;
             this.telnetAllBtn.Click += new System.EventHandler(this.telnetAllBtn_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.IpTxtBox);
+            this.groupBox1.Controls.Add(this.verifyLbl);
+            this.groupBox1.Controls.Add(this.PortTxtBox);
+            this.groupBox1.Controls.Add(this.TelnetBtn);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Location = new System.Drawing.Point(13, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(413, 80);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Single Telnet";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.outputTxtBox);
+            this.groupBox2.Controls.Add(this.IpPortTxtbox);
+            this.groupBox2.Controls.Add(this.telnetAllBtn);
+            this.groupBox2.Controls.Add(this.writeOutputBtn);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Location = new System.Drawing.Point(12, 99);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(413, 339);
+            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Multiple Telnet";
+            // 
             // TelnetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.outputTxtBox);
             this.Controls.Add(this.dataGridView);
-            this.Controls.Add(this.IpPortTxtbox);
-            this.Controls.Add(this.verifyLbl);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.writeOutputBtn);
-            this.Controls.Add(this.telnetAllBtn);
-            this.Controls.Add(this.TelnetBtn);
-            this.Controls.Add(this.PortTxtBox);
-            this.Controls.Add(this.IpTxtBox);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox2);
             this.Name = "TelnetForm";
             this.Text = "Telnet Form";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -202,6 +230,8 @@ namespace CMDPlay
         private System.Windows.Forms.TextBox outputTxtBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button telnetAllBtn;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
 

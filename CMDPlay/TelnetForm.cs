@@ -18,8 +18,8 @@ namespace CMDPlay
 
         private void TelnetBtn_Click(object sender, EventArgs e)
         {
-            var ip = IpTxtBox.Text;
-            var port = int.Parse(PortTxtBox.Text);
+            var ip = IpTxtBox.Text.Trim();
+            int.TryParse(PortTxtBox.Text.Trim(),out int port);
 
             bool IsConnected = Telnet(ip, port);
             if (IsConnected)
@@ -43,7 +43,7 @@ namespace CMDPlay
                 tc = new TcpClient(ip, port);
                 return true;
             }
-            catch (SocketException se)
+            catch (SocketException)
             {
                 return false;
             }
