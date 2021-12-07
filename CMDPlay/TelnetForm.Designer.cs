@@ -37,6 +37,10 @@ namespace CMDPlay
             this.verifyLbl = new System.Windows.Forms.Label();
             this.IpPortTxtbox = new System.Windows.Forms.TextBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.writeOutputBtn = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.outputTxtBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.telnetAllBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -113,9 +117,44 @@ namespace CMDPlay
             this.dataGridView.Size = new System.Drawing.Size(367, 404);
             this.dataGridView.TabIndex = 4;
             // 
+            // writeOutputBtn
+            // 
+            this.writeOutputBtn.Location = new System.Drawing.Point(294, 399);
+            this.writeOutputBtn.Name = "writeOutputBtn";
+            this.writeOutputBtn.Size = new System.Drawing.Size(75, 23);
+            this.writeOutputBtn.TabIndex = 1;
+            this.writeOutputBtn.Text = "Write";
+            this.writeOutputBtn.UseVisualStyleBackColor = true;
+            this.writeOutputBtn.Click += new System.EventHandler(this.writeOutputBtn_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.DefaultExt = "txt";
+            this.openFileDialog1.FileName = "output.txt";
+            this.openFileDialog1.RestoreDirectory = true;
+            this.openFileDialog1.ShowHelp = true;
+            this.openFileDialog1.Title = "Output File Location";
+            this.openFileDialog1.ValidateNames = false;
+            // 
+            // outputTxtBox
+            // 
+            this.outputTxtBox.Location = new System.Drawing.Point(12, 399);
+            this.outputTxtBox.Name = "outputTxtBox";
+            this.outputTxtBox.Size = new System.Drawing.Size(257, 23);
+            this.outputTxtBox.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 381);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(66, 15);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Output File";
+            // 
             // telnetAllBtn
             // 
-            this.telnetAllBtn.Location = new System.Drawing.Point(306, 228);
+            this.telnetAllBtn.Location = new System.Drawing.Point(306, 207);
             this.telnetAllBtn.Name = "telnetAllBtn";
             this.telnetAllBtn.Size = new System.Drawing.Size(75, 23);
             this.telnetAllBtn.TabIndex = 1;
@@ -128,11 +167,14 @@ namespace CMDPlay
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.outputTxtBox);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.IpPortTxtbox);
             this.Controls.Add(this.verifyLbl);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.writeOutputBtn);
             this.Controls.Add(this.telnetAllBtn);
             this.Controls.Add(this.TelnetBtn);
             this.Controls.Add(this.PortTxtBox);
@@ -155,6 +197,10 @@ namespace CMDPlay
         private System.Windows.Forms.Label verifyLbl;
         private System.Windows.Forms.TextBox IpPortTxtbox;
         private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.Button writeOutputBtn;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.TextBox outputTxtBox;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button telnetAllBtn;
     }
 }

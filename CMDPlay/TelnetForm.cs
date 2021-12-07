@@ -72,48 +72,70 @@ namespace CMDPlay
                 e.Handled = true;
             }
         }
-
+        public List<Telnet> telnets;
         private void telnetAllBtn_Click(object sender, EventArgs e)
         {
-            List<Telnet> telnets = new List<Telnet>();
+            telnets = new List<Telnet>();
             var ipPortText = IpPortTxtbox.Text;
-            var ipPorts= Regex.Split(ipPortText, "\r\n|\r|\n");
-            foreach(var ipPort in ipPorts)
+            var ipPorts = Regex.Split(ipPortText, "\r\n|\r|\n");
+            foreach (var ipPort in ipPorts)
             {
                 var ipPortAr = ipPort.Split(" ");
                 var ip = ipPortAr[0];
                 var port = int.Parse(ipPortAr[1]);
                 telnets.Add(new Telnet { Ip = ip, Port = port });
-                
-
             }
             dataGridView.DataSource = telnets;
             foreach (var telnet in telnets)
             {
-                telnet.IsConnected= Telnet(telnet.Ip, telnet.Port);
+                telnet.IsConnected = Telnet(telnet.Ip, telnet.Port);
                 dataGridView.Refresh();
             }
-            
-
-
-            ;// bool IsConnected = Telnet(ip, port);
-
-
         }
 
-        public void t()
+        private void writeOutputBtn_Click(object sender, EventArgs e)
         {
-            using (var fbd = new FolderBrowserDialog())
+            var path = outputTxtBox.Text;
+            if (string.IsNullOrWhiteSpace(path))
             {
-                DialogResult result = fbd.ShowDialog();
-
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    string[] files = Directory.GetFiles(fbd.SelectedPath);
-
-                    MessageBox.Show("Files found: " + files.Length.ToString(), "Message");
+                    path = openFileDialog1.FileName;
+                    outputTxtBox.Text = path;
                 }
             }
+
+            var mesage = WriteInPath(path, ToString(telnets));
+            MessageBox.Show(mesage);
+
+        }
+        public string ToString(List<Telnet> telnets)
+        {
+            var s = string.Empty;
+            if (telnets != null)
+                foreach (var telnet in telnets)
+                {
+                    s += $"{telnet.Ip} {telnet.Port} {telnet.IsConnected}\n";
+                }
+            return s;
+        }
+        public string WriteInPath(string path, string message)
+        {
+            try
+            {
+                using (FileStream fs = File.Create(path))
+                {
+                    byte[] info = new UTF8Encoding(true).GetBytes(message);
+                    // Add some information to the file.
+                    fs.Write(info, 0, info.Length);
+                    return "Your request has been processed successfully.";
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+
         }
     }
 
