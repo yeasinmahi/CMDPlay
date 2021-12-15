@@ -44,6 +44,7 @@ namespace CMDPlay
             this.telnetAllBtn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -96,7 +97,7 @@ namespace CMDPlay
             // verifyLbl
             // 
             this.verifyLbl.AutoSize = true;
-            this.verifyLbl.Location = new System.Drawing.Point(278, 43);
+            this.verifyLbl.Location = new System.Drawing.Point(279, 45);
             this.verifyLbl.Name = "verifyLbl";
             this.verifyLbl.Size = new System.Drawing.Size(0, 15);
             this.verifyLbl.TabIndex = 2;
@@ -232,6 +233,7 @@ namespace CMDPlay
         private System.Windows.Forms.Button telnetAllBtn;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 

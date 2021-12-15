@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Net.Sockets;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CMDPlay
@@ -55,6 +58,12 @@ namespace CMDPlay
                 }
             }
         }
+        private void BackgroundTelnet(Telnet telnet)
+        {
+            telnet.IsConnected = Telnet(telnet.Ip, telnet.Port);
+            dataGridView.Invoke(new Action(() => { dataGridView.Refresh(); }));
+            //dataGridView.Refresh();
+        }
 
         private void PortTxtBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -69,6 +78,7 @@ namespace CMDPlay
             }
         }
         public List<Telnet> telnets;
+
         private void telnetAllBtn_Click(object sender, EventArgs e)
         {
             telnets = new List<Telnet>();
@@ -76,18 +86,26 @@ namespace CMDPlay
             var ipPorts = Regex.Split(ipPortText, "\r\n|\r|\n");
             foreach (var ipPort in ipPorts)
             {
-                var ipPortAr = ipPort.Split(" ");
-                var ip = ipPortAr[0];
-                var port = int.Parse(ipPortAr[1]);
-                telnets.Add(new Telnet { Ip = ip, Port = port });
+                try
+                {
+                    var ipPortAr = ipPort.Split(" ");
+                    var ip = ipPortAr[0];
+                    var port = int.Parse(ipPortAr[1]);
+                    telnets.Add(new Telnet { Ip = ip, Port = port });
+                }
+                catch
+                {
+                    continue;
+                }
             }
             dataGridView.DataSource = telnets;
             foreach (var telnet in telnets)
             {
-                telnet.IsConnected = Telnet(telnet.Ip, telnet.Port);
-                dataGridView.Refresh();
+                Task.Run(() => BackgroundTelnet(telnet));
             }
         }
+
+       
 
         private void writeOutputBtn_Click(object sender, EventArgs e)
         {
