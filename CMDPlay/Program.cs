@@ -14,7 +14,7 @@ namespace CMDPlay
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TelnetForm());
+            Application.Run(new HomeForm());
         }
     }
 }
